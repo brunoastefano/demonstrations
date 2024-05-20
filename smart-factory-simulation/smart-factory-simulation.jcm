@@ -1,0 +1,13 @@
+mas factory {
+    agent camera_agent{
+      ag-arch: jason.Argo
+      //ag-class: npl.NormativeAg("src/org/factory.npl")
+    }
+
+    agent quality_agent{
+      ag-class: npl.NormativeAg("src/org/factory.npl")
+    }
+
+
+    uses package: argo "com.github.chon-group:argo-jcm:1.1"
+}
