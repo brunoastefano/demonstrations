@@ -1,5 +1,10 @@
 *.jar
 *.bat
+#exclude .gradle extension
 *.gradle
+#except for build.gradle
+!build.gradle
 *.bin
 **/build
+
+
