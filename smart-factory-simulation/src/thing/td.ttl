@@ -1,0 +1,149 @@
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#> .
+@prefix js: <https://www.w3.org/2019/wot/json-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://localhost:8080/> .
+
+<#SmartCameraDevice> a td:Thing ;
+    td:title "Smart-Camera-Device" ;
+    td:description "A smart camera that detects the colors of all wheels on a skateboard." ;
+    td:hasSecurityConfiguration [ a td:SecurityScheme; td:scheme "nosec" ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:IntegerSchema ;
+        td:name "minimumConfidence" ;
+        td:title "Minimum Confidence" ;
+        td:hasForm [
+            hctl:hasTarget <minimumConfidence> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:minimum 0 ;
+        td:maximum 100 ;
+        td:unit "%" ;
+    ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:ObjectSchema ;
+        td:name "wheelMeasure" ;
+        td:title "Wheel Measure" ;
+        td:description "The identified color and the confidence level of a particular wheel of the skateboard. Requires wheel id variable as uriVariables. This property is readOnly." ;
+        td:hasForm [
+            hctl:hasTarget <wheelMeasure> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:hasURIVariable [
+            a td:URIVariable ;
+            td:name "id" ;
+            td:enum ("frontLeft" "frontRight" "backLeft" "backRight") ;
+            td:type xsd:string ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:NumberSchema ;
+            td:name "confidenceLevel" ;
+            td:type xsd:number ;
+            td:minimum 0 ;
+            td:maximum 100 ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:StringSchema ;
+            td:name "color" ;
+            td:type xsd:string ;
+            td:enum ("red" "green" "blue" "yellow" "black" "white") ;
+        ] ;
+    ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:ObjectSchema ;
+        td:name "frontLeft" ;
+        td:title "Front Left Measure" ;
+        td:description "The identified color and the confidence level. This property is readOnly." ;
+        td:hasForm [
+            hctl:hasTarget <frontLeft> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:NumberSchema ;
+            td:name "confidenceLevel" ;
+            td:type xsd:number ;
+            td:minimum 0 ;
+            td:maximum 100 ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:StringSchema ;
+            td:name "color" ;
+            td:type xsd:string ;
+            td:enum ("red" "green" "blue" "yellow" "black" "white") ;
+        ] ;
+    ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:ObjectSchema ;
+        td:name "frontRight" ;
+        td:title "Front Right Measure" ;
+        td:description "The identified color and the confidence level. This property is readOnly." ;
+        td:hasForm [
+            hctl:hasTarget <frontRight> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:NumberSchema ;
+            td:name "confidenceLevel" ;
+            td:type xsd:number ;
+            td:minimum 0 ;
+            td:maximum 100 ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:StringSchema ;
+            td:name "color" ;
+            td:type xsd:string ;
+            td:enum ("red" "green" "blue" "yellow" "black" "white") ;
+        ] ;
+    ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:ObjectSchema ;
+        td:name "backLeft" ;
+        td:title "Back Left Measure" ;
+        td:description "The identified color and the confidence level. This property is readOnly." ;
+        td:hasForm [
+            hctl:hasTarget <backLeft> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:NumberSchema ;
+            td:name "confidenceLevel" ;
+            td:type xsd:number ;
+            td:minimum 0 ;
+            td:maximum 100 ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:StringSchema ;
+            td:name "color" ;
+            td:type xsd:string ;
+            td:enum ("red" "green" "blue" "yellow" "black" "white") ;
+        ] ;
+    ] ;
+    td:hasPropertyAffordance [
+        a td:PropertyAffordance, js:ObjectSchema ;
+        td:name "backRight" ;
+        td:title "Back Right Measure" ;
+        td:description "The identified color and the confidence level. This property is readOnly." ;
+        td:hasForm [
+            hctl:hasTarget <backRight> ;
+            hctl:forContentType "application/json" ;
+            hctl:hasOperationType td:readProperty ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:NumberSchema ;
+            td:name "confidenceLevel" ;
+            td:type xsd:number ;
+            td:minimum 0 ;
+            td:maximum 100 ;
+        ] ;
+        td:hasPropertyAffordance [
+            a td:PropertyAffordance, js:StringSchema ;
+            td:name "color" ;
+            td:type xsd:string ;
+            td:enum ("red" "green" "blue" "yellow" "black" "white") ;
+        ] ;
+    ] .
