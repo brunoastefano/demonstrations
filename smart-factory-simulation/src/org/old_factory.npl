@@ -1,0 +1,7 @@
+scope main {                               // definition of a scope of norms
+
+    norm n1: orders(N) & N > 0
+        -> obligation(quality_agent, n1, results(N), `10 seconds`)
+            if unfulfilled: sr1(camera_agent,5).
+    sanction-rule sr1(Ag,Value) -> sanction(Ag,loseReputation(Value)).
+}

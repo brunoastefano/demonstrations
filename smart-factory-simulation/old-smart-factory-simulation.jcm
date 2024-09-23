@@ -1,11 +1,10 @@
 mas factory {
     agent camera_agent{
       ag-arch: jason.Argo
-      //ag-class: npl.NormativeAg("src/org/factory.npl")
     }
 
     agent quality_agent{
-      ag-class: npl.NormativeAg("src/org/factory.npl")
+      ag-class: npl.NormativeAg("src/org/old_factory.npl")
     }
 
 
