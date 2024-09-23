@@ -1,13 +1,15 @@
 mas factory {
-    agent camera_agent{
-      ag-arch: jason.Argo
-      //ag-class: npl.NormativeAg("src/org/factory.npl")
+    agent camera_agent : camera_wot_agent.asl{
+      goals: start
+      join: thing_workspace
+      focus: thing_workspace.h
     }
 
     agent quality_agent{
       ag-class: npl.NormativeAg("src/org/factory.npl")
     }
 
-
-    uses package: argo "com.github.chon-group:argo-jcm:1.1"
+    workspace thing_workspace  {
+        artifact h: org.hypermedea.HypermedeaArtifact()
+    }
 }
